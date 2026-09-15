@@ -2,66 +2,247 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Priya ❤️</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;min-height:auto;overflow:auto;font-family:Georgia,serif;background:#09020d;color:white;display:flex;align-items:center;justify-content:center}
-.bg{position:fixed;inset:0;background:radial-gradient(circle at 50% 45%,#7d1d5b 0%,#350d32 35%,#09020d 78%);animation:pulse 4s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.08);filter:brightness(1.2)}}
-.stars span{position:absolute;width:3px;height:3px;background:white;border-radius:50%;animation:twinkle 2s infinite alternate}
-@keyframes twinkle{to{opacity:.15;transform:scale(.3)}}
-.card{position:relative;z-index:5;width:min(91%,440px);padding:35px 25px;text-align:center;border-radius:30px;background:#ffffff12;backdrop-filter:blur(16px);border:1px solid #ffffff35;box-shadow:0 25px 80px #0009;animation:cardIn 1.2s cubic-bezier(.2,.8,.2,1)}
-@keyframes cardIn{from{opacity:0;transform:translateY(50px) scale(.9)}to{opacity:1;transform:none}}
-.cake{font-size:72px;animation:cake 1.8s ease-in-out infinite}
-@keyframes cake{50%{transform:translateY(-9px) rotate(2deg)}}
-.date{letter-spacing:4px;color:#ffd2e7;font-size:13px}
-h1{font-size:35px;margin:10px 0 12px;text-shadow:0 0 25px #ff5eae}
-p{font-size:18px;line-height:1.65;color:#ffeaf5}
-button{border:0;border-radius:30px;padding:15px 30px;background:white;color:#671448;font-weight:bold;font-size:17px;cursor:pointer;box-shadow:0 0 0 0 #fff8;animation:buttonGlow 1.8s infinite}
-@keyframes buttonGlow{50%{box-shadow:0 0 30px 8px #ff9bc755;transform:scale(1.04)}}
-#wish{display:none;animation:reveal 1.5s cubic-bezier(.17,.67,.3,1.3)}
-@keyframes reveal{from{opacity:0;transform:scale(.55) translateY(30px)}to{opacity:1;transform:none}}
-.signature{margin-top:20px;color:#ffc6df;font-size:15px}
-.float{position:fixed;bottom:-50px;z-index:3;pointer-events:none;animation:floatUp linear forwards}
-@keyframes floatUp{0%{transform:translateY(0) scale(.5) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(-115vh) scale(1.4) rotate(360deg);opacity:0}}
-.burst{position:fixed;left:50%;top:50%;z-index:10;pointer-events:none;font-size:25px;animation:burst 1.5s ease-out forwards}
-@keyframes burst{0%{transform:translate(-50%,-50%) scale(.2);opacity:1}100%{transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.5);opacity:0}}
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Georgia,serif;
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+  overflow-y:auto;
+  background:linear-gradient(135deg,#120514,#65164d,#17051d);
+}
+
+.container{
+  width:100%;
+  min-height:100vh;
+  padding:45px 20px 70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.cake{
+  font-size:70px;
+  animation:float 2s infinite ease-in-out;
+}
+
+h1{
+  font-size:36px;
+  text-shadow:0 0 25px #ff8ac7;
+}
+
+p{
+  font-size:18px;
+  line-height:1.7;
+  color:#ffe8f5;
+}
+
+button{
+  margin-top:20px;
+  padding:16px 30px;
+  border:0;
+  border-radius:40px;
+  background:white;
+  color:#68154a;
+  font-size:17px;
+  font-weight:bold;
+  box-shadow:0 0 30px #ffb4dc;
+  animation:glow 1.7s infinite;
+}
+
+#wish{
+  display:none;
+  width:100%;
+  max-width:430px;
+  animation:appear 1.4s ease;
+}
+
+.photo{
+  width:100%;
+  max-width:390px;
+  margin:18px auto;
+  border-radius:24px;
+  border:2px solid #ffffff55;
+  box-shadow:0 15px 40px #0009;
+  animation:photoIn 1.5s ease;
+}
+
+.memory{
+  margin-top:35px;
+  font-size:27px;
+}
+
+.love{
+  margin-top:25px;
+  padding:25px 20px;
+  border-radius:25px;
+  background:#ffffff12;
+  border:1px solid #ffffff25;
+}
+
+.signature{
+  margin-top:25px;
+  color:#ffc6df;
+}
+
+.heart{
+  position:fixed;
+  bottom:-50px;
+  pointer-events:none;
+  z-index:10;
+  animation:rise linear forwards;
+}
+
+@keyframes float{
+  50%{transform:translateY(-10px)}
+}
+
+@keyframes glow{
+  50%{transform:scale(1.05);box-shadow:0 0 45px #ff9bd4}
+}
+
+@keyframes appear{
+  from{opacity:0;transform:scale(.6) translateY(30px)}
+  to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+@keyframes photoIn{
+  from{opacity:0;transform:translateY(50px) scale(.9)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes rise{
+  0%{
+    transform:translateY(0) rotate(0);
+    opacity:0;
+  }
+  15%{opacity:1}
+  100%{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
 </style>
 </head>
-<div style="text-align:center; margin:25px 0;">
-  <h2>Our Memories ❤️</h2>
 
-  <img src="IMG_3293.jpeg"
-       style="width:90%; max-width:400px; border-radius:20px; margin:10px;">
+<body>
 
-  <img src="IMG_4941.jpeg"
-       style="width:90%; max-width:400px; border-radius:20px; margin:10px;">
+<div class="container">
+
+  <div class="cake">🎂</div>
+
+  <div style="letter-spacing:4px;color:#ffd0e6;">
+    05 • OCTOBER
+  </div>
+
+  <h1>For Priya ❤️</h1>
+
+  <p>
+    Ek chhota sa surprise hai tumhare liye...<br>
+    Bas ek click door. ✨
+  </p>
+
+  <button onclick="openWish()">
+    Open Your Surprise 💌
+  </button>
+
+  <div id="wish">
+
+    <h1>Happy Birthday, Priya! 🎉❤️</h1>
+
+    <img class="photo" src="IMG_3293.jpeg">
+
+    <div class="memory">
+      Our Beautiful Memory ❤️
+    </div>
+
+    <img class="photo" src="IMG_4941.jpeg">
+
+    <div class="love">
+
+      <p>
+      “Tum meri zindagi ka woh khoobsurat hissa ho
+      jise main kabhi khona nahi chahta.
+      Mujhe nahi pata kal kya hoga,
+      lekin itna zaroor pata hai ki meri har khushi
+      mein tumhara ek hissa zaroor hai.
+      </p>
+
+      <p>
+      Bas yunhi meri zindagi mein rehna,
+      muskurati rehna...
+      aur mujhe har baar tumse aur zyada
+      pyaar karne ka reason deti rehna. ❤️”
+      </p>
+
+      <div style="font-size:38px;">
+        ❤️ 💖 💕 ✨
+      </div>
+
+    </div>
+
+    <div class="signature">
+      Always special. Always you. ❤️
+    </div>
+
+  </div>
+
 </div>
-  <body>
-<div class="bg"></div><div class="stars" id="stars"></div>
-<div class="card">
-<div class="cake">🎂</div>
-<div class="date">05 • OCTOBER</div>
-<h1>For Priya ❤️</h1>
-<p>Ek chhota sa surprise hai tumhare liye…<br>Bas ek button door. ✨</p>
-<button onclick="openWish()">Open Your Surprise 💌</button>
-<div id="wish">
-<h1>Happy Birthday, Priya! 🎉❤️</h1>
-<p>“Tum meri zindagi ka woh khoobsurat hissa ho jise main kabhi khona nahi chahta. Mujhe nahi pata kal kya hoga, lekin itna zaroor pata hai ki jab bhi main apni khushi ke baare mein sochta hoon, usmein tum kahin na kahin zaroor hoti ho. Bas yunhi meri zindagi mein rehna, muskurati rehna… aur mujhe tumse pyaar karne ka ek aur reason deti rehna. ❤️”</p>
-<div style="font-size:34px">💖 ✨ 🥹 🎀</div>
-<div class="signature">Always special. Always you. ❤️</div>
-</div>
-</div>
+
 <script>
-const stars=document.getElementById('stars');
-for(let i=0;i<55;i++){let s=document.createElement('span');s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';stars.appendChild(s)}
+
 function openWish(){
-document.querySelector('button').style.display='none';
-document.querySelector('#wish').style.display='block';
-for(let i=0;i<45;i++){let x=document.createElement('div');x.className='float';x.textContent=['❤️','💗','💕','✨','💖'][Math.floor(Math.random()*5)];x.style.left=Math.random()*100+'vw';x.style.animationDuration=(4+Math.random()*5)+'s';x.style.animationDelay=Math.random()*2+'s';x.style.fontSize=(15+Math.random()*25)+'px';document.body.appendChild(x)}
-for(let i=0;i<22;i++){let b=document.createElement('div');b.className='burst';b.textContent=['❤️','✨','💖','💕'][Math.floor(Math.random()*4)];b.style.setProperty('--x',(Math.random()*500-250)+'px');b.style.setProperty('--y',(Math.random()*500-250)+'px');document.body.appendChild(b);setTimeout(()=>b.remove(),1600)}
+
+  document.querySelector("button").style.display="none";
+
+  document.querySelector("#wish").style.display="block";
+
+  for(let i=0;i<50;i++){
+
+    let heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML=
+      ["❤️","💖","💕","✨","💗"][Math.floor(Math.random()*5)];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+      (15+Math.random()*25)+"px";
+
+    heart.style.animationDuration=
+      (4+Math.random()*5)+"s";
+
+    heart.style.animationDelay=
+      Math.random()*2+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+      heart.remove();
+    },9000);
+
+  }
+
 }
+
 </script>
+
 </body>
 </html>
