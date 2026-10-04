@@ -13,128 +13,203 @@
 
 html,body{
   margin:0;
-  padding:0;
-  width:100%;
   min-height:100%;
+  font-family:Georgia,serif;
+  background:linear-gradient(135deg,#120514,#65164d,#17051d);
+  color:white;
+  overflow-x:hidden;
 }
 
 body{
-  font-family:Georgia,serif;
-  color:white;
-  text-align:center;
-  overflow-x:hidden;
-  overflow-y:auto;
-  background:linear-gradient(135deg,#120514,#65164d,#17051d);
+  min-height:100vh;
 }
 
 .container{
-  width:100%;
   min-height:100vh;
-  padding:45px 20px 70px;
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px 18px 60px;
+}
+
+.screen{
+  display:none;
+  width:100%;
+  max-width:700px;
+  animation:fade .8s ease;
+}
+
+.screen.active{
+  display:block;
+}
+
+.title{
+  font-size:clamp(30px,8vw,52px);
+  margin:10px 0 18px;
+  text-shadow:0 0 18px #ff5ca8;
+}
+
+.sub{
+  font-size:18px;
+  opacity:.9;
+  margin-bottom:25px;
+}
+
+.teddy{
+  font-size:120px;
+  display:inline-block;
+  animation:float 2s ease-in-out infinite;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.35));
+}
+
+.gift{
+  font-size:115px;
+  display:inline-block;
+  animation:bounce 1.4s infinite;
 }
 
 .cake{
-  font-size:70px;
-  animation:float 2s infinite ease-in-out;
+  font-size:115px;
+  display:inline-block;
+  animation:pop .9s ease;
 }
 
-h1{
-  font-size:36px;
-  text-shadow:0 0 25px #ff8ac7;
-}
-
-p{
-  font-size:18px;
-  line-height:1.7;
-  color:#ffe8f5;
-}
-
-button{
-  margin-top:20px;
-  padding:16px 30px;
+.btn{
   border:0;
-  border-radius:40px;
-  background:white;
-  color:#68154a;
+  border-radius:999px;
+  padding:14px 28px;
+  background:#ff4f9a;
+  color:#fff;
   font-size:17px;
   font-weight:bold;
-  box-shadow:0 0 30px #ffb4dc;
-  animation:glow 1.7s infinite;
+  cursor:pointer;
+  box-shadow:0 0 22px rgba(255,79,154,.55);
+  transition:.2s;
 }
 
-#wish{
-  display:none;
-  width:100%;
-  max-width:430px;
-  animation:appear 1.4s ease;
+.btn:active{
+  transform:scale(.95);
+}
+
+.cakebox{
+  position:relative;
+  display:inline-block;
+}
+
+.flames{
+  font-size:55px;
+  position:absolute;
+  left:50%;
+  top:-18px;
+  transform:translateX(-50%);
+  letter-spacing:8px;
+  animation:flicker .25s infinite alternate;
+}
+
+.off .flames{
+  opacity:0;
+}
+
+.blow{
+  animation:blow 1.2s ease-in-out infinite;
+}
+
+.confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.piece{
+  position:absolute;
+  top:-30px;
+  font-size:25px;
+  animation:fall linear forwards;
+}
+
+.photos{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:22px 0;
 }
 
 .photo{
-  width:100%;
-  max-width:390px;
-  margin:18px auto;
-  border-radius:24px;
-  border:2px solid #ffffff55;
-  box-shadow:0 15px 40px #0009;
-  animation:photoIn 1.5s ease;
-}
-
-.memory{
-  margin-top:35px;
-  font-size:27px;
-}
-
-.love{
-  margin-top:25px;
-  padding:25px 20px;
-  border-radius:25px;
-  background:#ffffff12;
-  border:1px solid #ffffff25;
-}
-
-.signature{
-  margin-top:25px;
-  color:#ffc6df;
+  width:140px;
+  height:170px;
+  object-fit:cover;
+  border:5px solid white;
+  border-radius:12px;
+  box-shadow:0 5px 20px #0008;
 }
 
 .heart{
-  position:fixed;
-  bottom:-50px;
-  pointer-events:none;
-  z-index:10;
-  animation:rise linear forwards;
+  font-size:90px;
+  animation:heartbeat 1s infinite;
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
 
 @keyframes float{
-  50%{transform:translateY(-10px)}
+  50%{
+    transform:translateY(-14px) rotate(2deg);
+  }
 }
 
-@keyframes glow{
-  50%{transform:scale(1.05);box-shadow:0 0 45px #ff9bd4}
+@keyframes bounce{
+  50%{
+    transform:translateY(-18px) rotate(-3deg);
+  }
 }
 
-@keyframes appear{
-  from{opacity:0;transform:scale(.6) translateY(30px)}
-  to{opacity:1;transform:scale(1) translateY(0)}
-}
-
-@keyframes photoIn{
-  from{opacity:0;transform:translateY(50px) scale(.9)}
-  to{opacity:1;transform:none}
-}
-
-@keyframes rise{
-  0%{
-    transform:translateY(0) rotate(0);
+@keyframes pop{
+  from{
+    transform:scale(.4);
     opacity:0;
   }
-  15%{opacity:1}
-  100%{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes flicker{
+  from{
+    transform:translateX(-50%) scale(.9);
+  }
+  to{
+    transform:translateX(-50%) scale(1.1);
+  }
+}
+
+@keyframes blow{
+  50%{
+    transform:translateX(10px) scale(1.04);
+  }
+}
+
+@keyframes heartbeat{
+  50%{
+    transform:scale(1.12);
+  }
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
   }
 }
 </style>
@@ -144,97 +219,254 @@ button{
 
 <div class="container">
 
-  <div class="cake">🎂</div>
+<!-- STEP 1 -->
+<section class="screen active" id="s1">
 
-  <div style="letter-spacing:4px;color:#ffd0e6;">
-    05 • OCTOBER
-  </div>
+  <div class="teddy">🧸</div>
 
-  <h1>For Priya ❤️</h1>
+  <h1 class="title">
+    Hi Priya ❤️
+  </h1>
 
-  <p>
-    Ek chhota sa surprise hai tumhare liye...<br>
-    Bas ek click door. ✨
+  <p class="sub">
+    Someone has a little surprise for you...
   </p>
 
-  <button onclick="openWish()">
-    Open Your Surprise 💌
+  <button class="btn" onclick="next(2)">
+    Open Surprise ✨
   </button>
 
-  <div id="wish">
+</section>
 
-    <h1>Happy Birthday, Priya! 🎉❤️</h1>
-<img class="photo" src="https://raw.githubusercontent.com/ayushamabala68-stack/priya/main/IMG_3293.jpeg" alt="Priya">
-    <div class="memory">
-      Our Beautiful Memory ❤️
+
+<!-- STEP 2 -->
+<section class="screen" id="s2">
+
+  <div class="teddy">🧸</div>
+
+  <div class="gift">
+    🎁
+  </div>
+
+  <h1 class="title">
+    A Gift For You
+  </h1>
+
+  <p class="sub">
+    Ready to see what's inside?
+  </p>
+
+  <button class="btn" onclick="next(3)">
+    Open 🎀
+  </button>
+
+</section>
+
+
+<!-- STEP 3 -->
+<section class="screen" id="s3">
+
+  <div class="cake">
+    🎂
+  </div>
+
+  <h1 class="title">
+    It's Your Special Day ❤️
+  </h1>
+
+  <p class="sub">
+    Make a wish, Priya...
+  </p>
+
+  <button class="btn" onclick="next(4)">
+    Light the Candles 🕯️
+  </button>
+
+</section>
+
+
+<!-- STEP 4 -->
+<section class="screen" id="s4">
+
+  <div class="cakebox" id="cakebox">
+
+    <div class="flames">
+      🔥🔥🔥
     </div>
 
-    <img class="photo" src="IMG_4941.jpeg">
-
-    <div class="love">
-
-      <p>
-      “Tum meri zindagi ka woh khoobsurat hissa ho
-      jise main kabhi khona nahi chahta.
-      Mujhe nahi pata kal kya hoga,
-      lekin itna zaroor pata hai ki meri har khushi
-      mein tumhara ek hissa zaroor hai.
-      </p>
-
-      <p>
-      Bas yunhi meri zindagi mein rehna,
-      muskurati rehna...
-      aur mujhe har baar tumse aur zyada
-      pyaar karne ka reason deti rehna. ❤️”
-      </p>
-
-      <div style="font-size:38px;">
-        ❤️ 💖 💕 ✨
-      </div>
-
-    </div>
-
-    <div class="signature">
-      Always special. Always you. ❤️
+    <div class="cake">
+      🎂
     </div>
 
   </div>
+
+  <h1 class="title">
+    Make A Wish 🕯️
+  </h1>
+
+  <p class="sub">
+    Blow the candles with Teddy...
+  </p>
+
+  <button class="btn" onclick="blowCandles()">
+    Blow 💨
+  </button>
+
+</section>
+
+
+<!-- STEP 5 -->
+<section class="screen" id="s5">
+
+  <div class="teddy blow">
+    🧸💨
+  </div>
+
+  <div class="cakebox off" id="cakebox2">
+
+    <div class="flames">
+      🔥🔥🔥
+    </div>
+
+    <div class="cake">
+      🎂
+    </div>
+
+  </div>
+
+  <h1 class="title">
+    Wish Made! ✨
+  </h1>
+
+  <p class="sub">
+    And now... let's celebrate!
+  </p>
+
+  <button class="btn" onclick="celebrate()">
+    Celebrate 🎉
+  </button>
+
+</section>
+
+
+<!-- STEP 6 -->
+<section class="screen" id="s6">
+
+  <div class="teddy">
+    🧸🎉
+  </div>
+
+  <h1 class="title">
+    Happy Birthday Priya ❤️
+  </h1>
+
+  <p class="sub">
+    You deserve all the happiness in the world.
+  </p>
+
+  <div class="photos">
+
+    <img
+      class="photo"
+      src="IMG_3293.jpeg"
+      alt="Our memory"
+    >
+
+    <img
+      class="photo"
+      src="IMG_4941.jpeg"
+      alt="Our memory"
+    >
+
+  </div>
+
+  <div class="heart">
+    ❤️
+  </div>
+
+  <p class="sub">
+    Always and Forever 🫶
+  </p>
+
+</section>
 
 </div>
 
+
+<div class="confetti" id="confetti"></div>
+
+
 <script>
 
-function openWish(){
+function next(n){
 
-  document.querySelector("button").style.display="none";
+  document
+    .querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
 
-  document.querySelector("#wish").style.display="block";
+  document
+    .getElementById('s' + n)
+    .classList.add('active');
 
-  for(let i=0;i<50;i++){
+  window.scrollTo(0,0);
+}
 
-    let heart=document.createElement("div");
 
-    heart.className="heart";
+function blowCandles(){
 
-    heart.innerHTML=
-      ["❤️","💖","💕","✨","💗"][Math.floor(Math.random()*5)];
+  document
+    .getElementById('cakebox')
+    .classList.add('off');
 
-    heart.style.left=Math.random()*100+"vw";
+  setTimeout(() => next(5),900);
+}
 
-    heart.style.fontSize=
-      (15+Math.random()*25)+"px";
 
-    heart.style.animationDuration=
-      (4+Math.random()*5)+"s";
+function celebrate(){
 
-    heart.style.animationDelay=
-      Math.random()*2+"s";
+  next(6);
 
-    document.body.appendChild(heart);
+  const box =
+    document.getElementById('confetti');
 
-    setTimeout(()=>{
-      heart.remove();
-    },9000);
+  const items = [
+    '🎉',
+    '❤️',
+    '✨',
+    '💖',
+    '🎈',
+    '🌸'
+  ];
+
+  for(let i=0;i<55;i++){
+
+    const p =
+      document.createElement('span');
+
+    p.className = 'piece';
+
+    p.textContent =
+      items[
+        Math.floor(
+          Math.random() * items.length
+        )
+      ];
+
+    p.style.left =
+      Math.random() * 100 + 'vw';
+
+    p.style.animationDuration =
+      (2 + Math.random() * 3) + 's';
+
+    p.style.animationDelay =
+      (Math.random() * .5) + 's';
+
+    box.appendChild(p);
+
+    setTimeout(
+      () => p.remove(),
+      6000
+    );
 
   }
 
